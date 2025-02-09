@@ -1,5 +1,5 @@
 const CACHE_NAME = "soggy-notes-cache-v1";
-const STATIC_ASSETS = ["/", "/manifest.json", "/icons/logo512.png", "/icons/logo192.png"];
+const STATIC_ASSETS = ["/", "/manifest.json", "/icons/icon-512x512.png", "/icons/icon-192x192.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
