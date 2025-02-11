@@ -31,7 +31,7 @@ export default function Index() {
                 isAtTop
                   ? "left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-[4]"
                   : "left-4 top-4 transform -translate-x-0 -translate-y-0 scale-100"
-              } flex items-center space-x-4`}>
+              } flex items-center`}>
             <img src="/icons/logo.svg" className="w-12 h-12" />
             <img src="/soggynotesrecords.svg" className="w-48" />
             </div>
@@ -49,13 +49,13 @@ export default function Index() {
                       to="/join"
                       className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-3 text-base font-medium text-yellow-50 shadow-sm hover:bg-yellow-50 sm:px-8"
                     >
-                      Sign up
+                      Demo Login
                     </Link>
                     <Link
                       to="/login"
                       className="flex items-center justify-center rounded-md bg-yellow-500 px-4 py-3 font-medium text-white hover:bg-yellow-600"
                     >
-                      Log In
+                      Artist Login
                     </Link>
                   </div>
                 )}
@@ -65,7 +65,7 @@ export default function Index() {
         </div>
       </div>
       
-      <div className="h-[300vh] bg-gray-100 flex justify-center items-center">
+      <div className="h-[300vh] flex justify-center items-center">
         <p className="text-3xl">Scroll Down!</p>
       </div>
     </main>
