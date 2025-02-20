@@ -47,7 +47,7 @@ export default function Index() {
                   View Notes for {user.email}
                 </Link>
               ) : (
-                <div className={`space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0 ${isAtTop ? "w-90": "invisible lg:visible"}`}>
+                <div className={`space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0 ${isAtTop ? "mx-auto sm: w-full lg: w-1/2": "invisible lg:visible"}`}>
                   <Link
                     to="/join"
                     className="flex items-center justify-center rounded-md bg-blue-500 px-4 py-3 text-base font-medium text-yellow-50 hover:bg-blue-50 sm:px-8"
