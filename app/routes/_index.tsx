@@ -1,14 +1,27 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
-
+import { getAllUsers } from "~/models/user.server";
 import { useOptionalUser } from "~/utils";
+import { json } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { LoaderFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
+
+export const loader = async () => {
+  console.log("test")
+  const users = await getAllUsers()
+  console.log(users)
+  return json({ users});
+};
+
 
 export default function Index() {
   const user = useOptionalUser();
   const [isAtTop, setIsAtTop] = useState(true);
+  const data = useLoaderData<typeof loader>();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,7 +80,12 @@ export default function Index() {
           </div>
         </div>
       </div>
-
+      <div>{data.users.map((user) => (
+        <>
+        <p>{user.email}</p>
+        <p>Hello</p>
+        </>
+      ))}</div>
       <div className="h-[300vh] flex justify-center items-center">
         <p className="text-3xl">Scroll Down!</p>
       </div>
