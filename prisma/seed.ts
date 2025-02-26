@@ -1,28 +1,83 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
+
 const prisma = new PrismaClient();
 
 async function seed() {
-  const email = "rachel@remix.run";
+
 
   // cleanup the existing database
-  await prisma.user.delete({ where: { email } }).catch(() => {
+  await prisma.user.deleteMany({
+    where: {
+      title: {in: ["", "The Salmonberries", "The Pockets Full of Jelly", "Cool Hand"]}
+    }
+  }).catch(() => {
     // no worries if it doesn't exist yet
   });
 
   const hashedPassword = await bcrypt.hash("racheliscool", 10);
 
+  const hashedPasswordTwo = await bcrypt.hash("CodyDaBest", 10);
+
   const user = await prisma.user.create({
     data: {
-      email,
+      email: "rachel@remix.run",
       password: {
         create: {
           hash: hashedPassword,
         },
       },
+      title: "",
+      image: "",
+      bio: ""
+
     },
   });
+
+  await prisma.user.create({
+    data: {
+      email: "thesalmonberries@gmail.com",
+      password: {
+        create: {
+          hash: hashedPasswordTwo,
+        },
+      },
+      title: "The Salmonberries",
+      image: "",
+      bio: ""
+    }
+  });
+
+  await prisma.user.create({
+    data: {
+      email: "soggynotes@gmail.com",
+      password: {
+        create: {
+          hash: hashedPasswordTwo,
+        },
+      },
+      title: "The Pockets Full of Jelly",
+      image: "",
+      bio: ""
+    }
+  });
+
+  await prisma.user.create({
+    data: {
+      email: "coolhand@email.com",
+      password: {
+        create: {
+          hash: hashedPasswordTwo,
+        },
+      },
+      title: "Cool Hand",
+      image: "",
+      bio: ""
+    }
+  });
+
+
 
   await prisma.note.create({
     data: {

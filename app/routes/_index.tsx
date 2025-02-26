@@ -82,12 +82,12 @@ export default function Index() {
       </div>
       <div>{data.users.map((user) => (
         <>
-        <p>{user.email}</p>
+        <p>{user.title}</p>
         <p>Hello</p>
         </>
       ))}</div>
       <div className="h-[300vh] flex justify-center items-center">
-        <p className="text-3xl">Scroll Down!</p>
+        <p className="text-3xl"></p>
       </div>
     </main>
 
