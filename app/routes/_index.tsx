@@ -80,15 +80,15 @@ export default function Index() {
           </div>
         </div>
       </div>
-      <div>{data.users.map((user) => (
+      <div className={`h-[100vh] flex justify-center transition-all duration-500 ease-in-out ${isAtTop ? "mt-[85vh]" : "mt-[20vh]"} `}>
+        <p className="text-3xl mt-[20vh]">{data.users.map((user) => (
         <>
-        <p>{user.title}</p>
+        <p key={user.id}>{user.title}</p>
         <p>Hello</p>
         </>
-      ))}</div>
-      <div className="h-[300vh] flex justify-center items-center">
-        <p className="text-3xl"></p>
+      ))}</p>
       </div>
+  
     </main>
 
   );
